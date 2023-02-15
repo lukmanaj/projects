@@ -455,8 +455,77 @@ the kind of lottery you just modeled. Make a list or tuple called my_ticket.
 Write a loop that keeps pulling numbers until your ticket wins. Print a message 
 reporting how many times the loop had to run to give you a winning ticket.'''
 
+from random import choice
 
+def get_winning_ticket(list):
+    """Return a winning ticket from a list of numbers and letters."""
+    winning_ticket = []
 
+    # Using a while loop to prevent a repeat.
+    while len(winning_ticket) < 4:
+        pulled_item = choice(list)
+
+        # Only add the pulled item to the winning ticket if it hasn't been pulled
+        if pulled_item not in winning_ticket:
+            winning_ticket.append(pulled_item)
+
+    return winning_ticket
+
+def check_ticket(played_ticket, winning_ticket):
+    '''Check all elements in the played ticket. If any are not in the 
+      winning ticket, return False'''
+    for element in played_ticket:
+        if element not in winning_ticket:
+            return False
+    # We must have a winning ticket!
+    return True
+
+def make_random_ticket(list):
+    """Return a random ticket from a list of numbers and letters."""
+    ticket = []
+    # Using a while loop to prevent repetition.
+    while len(ticket) < 4:
+        pulled_item = choice(list)
+
+        # Only add the pulled item to the ticket if it hasn't already been pulled.
+        if pulled_item not in ticket:
+            ticket.append(pulled_item)
+
+    return ticket
+
+num_letts = [1,3,4,5,6,7,11,8,17,19,'e','g','o','l','f']
+winning_ticket = get_winning_ticket(num_letts)
+
+plays = 0
+won = False
+
+# Let's set a max number of tries
+max_tries = 1_000_000
+
+while not won:
+    new_ticket = make_random_ticket(num_letts)
+    won = check_ticket(new_ticket, winning_ticket)
+    plays += 1
+    if plays >= max_tries:
+        break
+
+if won:
+    print("We have a winning ticket!")
+    print(f"Your ticket: {new_ticket}")
+    print(f"Winning ticket: {winning_ticket}")
+    print(f"It only took {plays} tries to win!")
+else:
+    print(f"Tried {plays} times, without pulling a winner. :(")
+    print(f"Your ticket: {new_ticket}")
+    print(f"Winning ticket: {winning_ticket}")
+
+'''
+output:
+We have a winning ticket!
+Your ticket: ['f', 'g', 'e', 17]
+Winning ticket: [17, 'e', 'g', 'f']
+It only took 829 tries to win!
+'''
 
 
 '''9-16. Python Module of the Week: One excellent resource for exploring the 
