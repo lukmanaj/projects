@@ -180,8 +180,9 @@ class User_v2:
         self.login_attempts = 0
 
 user_ex = User_v2('Sam','Wells',30,'Paris','Loafer')
-user_ex.increment_login_attempts()  # called it multiple times
-print(user_ex.login_attempts) #23
+for i in range(10):
+    user_ex.increment_login_attempts()
+print(user_ex.login_attempts) 
 user_ex.reset_login_attempts()
 print(user_ex.login_attempts)  # back to zero
 
@@ -409,7 +410,8 @@ for roll in range(10):
 print("\n10 rolls of a 10-sided die:")
 print(result)
 
-# Make a 20-sided die, and show the results of 10 rolls.
+# Making a 20-sided die, and showing the results of 10 rolls.
+
 die_twenty =  Die(sides=20)
 
 result = []
@@ -519,13 +521,6 @@ else:
     print(f"Your ticket: {new_ticket}")
     print(f"Winning ticket: {winning_ticket}")
 
-'''
-output:
-We have a winning ticket!
-Your ticket: ['f', 'g', 'e', 17]
-Winning ticket: [17, 'e', 'g', 'f']
-It only took 829 tries to win!
-'''
 
 
 '''9-16. Python Module of the Week: One excellent resource for exploring the 
