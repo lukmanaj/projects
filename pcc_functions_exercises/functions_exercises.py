@@ -55,28 +55,6 @@ describe_city('Kano')
 describe_city('Kaduna')
 describe_city('Paris','France')
 
-# Miscellaneous practice
-def add(x:int,y:float):
-    return round(x/y)
-
-def rev_list(list:list):
-    '''Reverse the order of a list'''
-    return [list[i] for i in range(len(list)-1,-1,-1)]
-
-rev_list([1,2,3,4,'stringr'])
-
-def rev_list_v2(list:list):
-    list.reverse()
-    return list
-
-rev_list_v2([1,2,3,4,'stringr'])    
-
-def rec(**key):
-    print(key)
-
-rec(name='Lukman',age=28,address='Kaduna')
-# miscellaneous block ends
-
 ''' 8-6. City Names: Write a function called city_country() that takes in the name 
 of a city and its country. The function should return a string formatted like this:
 "Santiago, Chile" 
@@ -266,11 +244,4 @@ from module_name import *
 
 8-17. Styling Functions: Choose any three programs you wrote for this chapter, 
 and make sure they follow the styling guidelines described in this section.
-
-
 '''
-from functools import reduce
-
-squared_even_numbers = reduce(lambda x,y:x+y,
-                                    list(filter(lambda x: x % 2 ==0,
-                                                map(lambda x:x**2,[1,2,3,4,5]))))
