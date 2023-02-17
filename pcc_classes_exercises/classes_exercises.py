@@ -1,3 +1,6 @@
+# Exercises for PCC Classes Chapter
+# Part of Arewa Data Science Fellowship Curriculum
+
 '''
 9-1. Restaurant: Make a class called Restaurant. The __init__() method for 
 Restaurant should store two attributes: a restaurant_name and a cuisine_type. 
